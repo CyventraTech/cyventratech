@@ -4,8 +4,6 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
-import Solutions from './pages/Solutions'
-import Resources from './pages/Resources'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
 
@@ -19,8 +17,9 @@ export default function App() {
           {/* redirect old why-cyventra links to about */}
           <Route path="/why-cyventra" element={<Navigate to="/about" replace />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/resources" element={<Resources />} />
+          {/* Solutions & Resources hidden — redirect to home */}
+          <Route path="/solutions" element={<Navigate to="/" replace />} />
+          <Route path="/resources" element={<Navigate to="/" replace />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
         </Route>

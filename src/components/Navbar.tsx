@@ -23,8 +23,6 @@ const serviceLinks = [
 const navLinks = [
   { label: 'about us', href: '/about', dropdown: false },
   { label: 'services', href: '/services', dropdown: true },
-  { label: 'solutions', href: '/solutions', dropdown: false },
-  { label: 'resources', href: '/resources', dropdown: false },
   { label: 'careers', href: '/careers', dropdown: false },
 ]
 

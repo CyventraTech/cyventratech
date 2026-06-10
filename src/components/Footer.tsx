@@ -6,25 +6,13 @@ const links = {
   Company: [
     { label: 'About Us', href: '/about' },
     { label: 'Careers', href: '/careers' },
-    { label: 'Resources', href: '/resources' },
-  ],
-  Solutions: [
-    { label: 'Cloud Security', href: '/solutions' },
-    { label: 'Endpoint Protection', href: '/solutions' },
-    { label: 'Threat Intelligence', href: '/solutions' },
-    { label: 'Compliance', href: '/solutions' },
+    { label: 'Get In Touch', href: '/contact' },
   ],
   Services: [
-    { label: 'Managed Security', href: '/services' },
-    { label: 'Penetration Testing', href: '/services' },
-    { label: 'Incident Response', href: '/services' },
-    { label: 'Consulting', href: '/services' },
-  ],
-  Resources: [
-    { label: 'Blog', href: '/resources' },
-    { label: 'Whitepapers', href: '/resources' },
-    { label: 'Case Studies', href: '/resources' },
-    { label: 'Documentation', href: '/resources' },
+    { label: 'Website Development', href: '/services#website-development' },
+    { label: 'Cloud Security', href: '/services#cloud-security' },
+    { label: 'Cybersecurity Solutions', href: '/services#cybersecurity' },
+    { label: 'AI & Business Automation', href: '/services#ai-automation' },
   ],
 }
 
