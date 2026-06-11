@@ -87,7 +87,6 @@ export default function Navbar() {
             src="/logo-full.png"
             alt="CYVENTRA Technologies"
             className="h-12 sm:h-14 md:h-16 w-auto object-contain"
-            style={{ mixBlendMode: 'screen' }}
           />
         </Link>
 

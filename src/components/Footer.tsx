@@ -25,8 +25,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="mb-5">
               <img src="/logo-full.png" alt="CYVENTRA Technologies"
-                className="h-12 sm:h-14 w-auto object-contain"
-                style={{ mixBlendMode: 'screen' }} />
+                className="h-12 sm:h-14 w-auto object-contain" />
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed max-w-xs">
               End-to-end technology services — cybersecurity, cloud, AI, and IT solutions for businesses of every scale.
