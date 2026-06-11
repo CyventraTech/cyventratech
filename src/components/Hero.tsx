@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DottedSurface } from '@/components/ui/dotted-surface'
+import { SplineScene } from '@/components/ui/splite'
+import { Spotlight } from '@/components/ui/spotlight'
 
 const lines = [
-  { word1: 'Build',    word2: 'your',  word3: 'Application', colors: ['#ffffff', '#3b82f6', '#ef4444'] },
-  { word1: 'Protect',  word2: 'your',  word3: 'Data',        colors: ['#ef4444', '#ffffff', '#3b82f6'] },
-  { word1: 'Automate', word2: 'your',  word3: 'Space',       colors: ['#3b82f6', '#ef4444', '#ffffff'] },
-  { word1: 'Secure',   word2: 'your',  word3: 'Network',     colors: ['#ffffff', '#ef4444', '#3b82f6'] },
-  { word1: 'Scale',    word2: 'your',  word3: 'Business',    colors: ['#3b82f6', '#ffffff', '#ef4444'] },
+  { word1: 'Build',    word2: 'your', word3: 'Application', colors: ['#ffffff', '#3b82f6', '#ef4444'] },
+  { word1: 'Protect',  word2: 'your', word3: 'Data',        colors: ['#ef4444', '#ffffff', '#3b82f6'] },
+  { word1: 'Automate', word2: 'your', word3: 'Space',       colors: ['#3b82f6', '#ef4444', '#ffffff'] },
+  { word1: 'Secure',   word2: 'your', word3: 'Network',     colors: ['#ffffff', '#ef4444', '#3b82f6'] },
+  { word1: 'Scale',    word2: 'your', word3: 'Business',    colors: ['#3b82f6', '#ffffff', '#ef4444'] },
 ]
 
 export default function Hero() {
   const [index, setIndex] = useState(0)
   const [visible, setVisible] = useState(true)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    // entrance animation trigger
+    setTimeout(() => setMounted(true), 100)
+
     const interval = setInterval(() => {
-      // fade out
       setVisible(false)
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % lines.length)
@@ -29,113 +35,127 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_063509_7d167302-4fd4-480b-8260-18ab572333d4.mp4"
-        aria-hidden="true"
-      />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+      {/* ── Animated dotted wave background ── */}
+      <DottedSurface className="absolute inset-0 z-0" />
 
-      {/* Blue glow top-left */}
+      {/* ── Dark overlay so text stays readable ── */}
+      <div className="absolute inset-0 z-[1] bg-black/50" />
+
+      {/* ── Glows ── */}
       <div
-        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-30 pointer-events-none z-[2]"
         style={{ background: 'radial-gradient(circle, #1a3a8f 0%, transparent 70%)' }}
-        aria-hidden="true"
       />
-      {/* Red glow bottom-right */}
       <div
-        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
+        className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none z-[2]"
         style={{ background: 'radial-gradient(circle, #cc1a1a 0%, transparent 70%)' }}
-        aria-hidden="true"
       />
 
-      {/* Foreground */}
-      <div className="relative h-full w-full flex flex-col justify-center px-6 md:px-12 pt-28 md:pt-32">
+      {/* ── Spotlight follows mouse ── */}
+      <Spotlight size={600} className="z-[3]" />
 
-        {/* Animated 3-word staggered headline */}
+      {/* ── Split layout ── */}
+      <div className="relative z-10 h-full w-full flex flex-col md:flex-row">
+
+        {/* LEFT — text */}
         <div
-          className="select-none"
+          className="flex-1 flex flex-col justify-center px-6 md:px-12 pt-28 md:pt-0"
           style={{
-            transition: 'opacity 0.5s ease, transform 0.5s ease',
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 0.8s ease, transform 0.8s ease',
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? 'translateX(0)' : 'translateX(-40px)',
           }}
         >
-          {/* Word 1 — left aligned */}
+          {/* Cycling headline */}
           <div
-            className="hero-title font-black text-[10vw] md:text-[8vw] leading-[0.9] block"
-            style={{ color: current.colors[0] }}
+            style={{
+              transition: 'opacity 0.5s ease, transform 0.5s ease',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(16px)',
+            }}
           >
-            {current.word1}
+            <div
+              className="hero-title font-black text-[10vw] md:text-[7vw] leading-[0.9] block"
+              style={{ color: current.colors[0] }}
+            >
+              {current.word1}
+            </div>
+            <div
+              className="hero-title font-black text-[10vw] md:text-[7vw] leading-[0.9] block md:text-center"
+              style={{ color: current.colors[1] }}
+            >
+              {current.word2}
+            </div>
+            <div
+              className="hero-title font-black text-[10vw] md:text-[7vw] leading-[0.9] block md:text-right"
+              style={{ color: current.colors[2] }}
+            >
+              {current.word3}
+            </div>
           </div>
 
-          {/* Word 2 — center */}
-          <div
-            className="hero-title font-black text-[10vw] md:text-[8vw] leading-[0.9] block text-center"
-            style={{ color: current.colors[1] }}
-          >
-            {current.word2}
+          {/* Description */}
+          <p className="mt-6 max-w-[280px] text-[15px] leading-snug text-white/70">
+            end-to-end technology solutions — from cybersecurity to cloud, AI to automation.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
+            <Link
+              to="/contact"
+              className="bg-red-600 text-white text-sm font-medium rounded-full px-7 py-3 hover:bg-red-700 transition-colors inline-block"
+            >
+              get started
+            </Link>
+            <Link
+              to="/about"
+              className="border border-white/30 text-white text-sm font-medium rounded-full px-7 py-3 hover:bg-white/10 transition-colors inline-block"
+            >
+              learn more
+            </Link>
           </div>
 
-          {/* Word 3 — right aligned */}
-          <div
-            className="hero-title font-black text-[10vw] md:text-[8vw] leading-[0.9] block text-right"
-            style={{ color: current.colors[2] }}
-          >
-            {current.word3}
+          {/* Dots */}
+          <div className="flex gap-2 mt-8">
+            {lines.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setVisible(false)
+                  setTimeout(() => { setIndex(i); setVisible(true) }, 300)
+                }}
+                className="h-1 rounded-full transition-all duration-300"
+                style={{
+                  width: i === index ? '24px' : '8px',
+                  backgroundColor: i === index ? current.colors[0] : 'rgba(255,255,255,0.3)',
+                }}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Description */}
-        <p className="mt-8 max-w-[280px] text-[15px] leading-snug text-white/80">
-          end-to-end technology solutions — from cybersecurity to cloud, AI to automation.
-        </p>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-6">
-          <Link
-            to="/contact"
-            className="bg-red-600 text-white text-sm font-medium rounded-full px-7 py-3 hover:bg-red-700 transition-colors inline-block"
-          >
-            get started
-          </Link>
-          <Link
-            to="/about"
-            className="border border-white/30 text-white text-sm font-medium rounded-full px-7 py-3 hover:bg-white/10 transition-colors inline-block"
-          >
-            learn more
-          </Link>
-        </div>
-
-        {/* Slide indicator dots */}
-        <div className="flex gap-2 mt-10">
-          {lines.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => { setVisible(false); setTimeout(() => { setIndex(i); setVisible(true) }, 300) }}
-              className="h-1 rounded-full transition-all duration-300"
-              style={{
-                width: i === index ? '24px' : '8px',
-                backgroundColor: i === index ? current.colors[0] : 'rgba(255,255,255,0.3)',
-              }}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
+        {/* RIGHT — Spline 3D */}
+        <div
+          className="hidden md:block flex-1 relative h-full"
+          style={{
+            transition: 'opacity 1.2s ease, transform 1.2s ease',
+            opacity: mounted ? 1 : 0,
+            transform: mounted ? 'translateX(0)' : 'translateX(40px)',
+          }}
+        >
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
         </div>
       </div>
 
-      {/* Bottom gradient */}
+      {/* Bottom fade */}
       <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-48"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-48 z-20"
         style={{ background: 'linear-gradient(to bottom, transparent, #000)' }}
-        aria-hidden="true"
       />
     </section>
   )
