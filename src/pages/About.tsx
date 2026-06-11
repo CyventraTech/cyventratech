@@ -107,12 +107,15 @@ export default function About() {
               <div className="absolute w-[68%] h-[68%] rounded-full border border-white/20"
                 style={{ animation: 'orbitSpin 6s linear infinite' }} />
 
-              <div className="relative z-10 flex items-center justify-center" style={{ isolation: 'isolate' }}>
-                <div className="absolute w-28 h-28 rounded-full"
-                  style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }} />
+              {/* Dark circle behind logo — ensures white bg blends away with screen mode */}
+              <div className="absolute w-32 h-32 lg:w-44 lg:h-44 rounded-full bg-black z-[9]" />
+
+              <div className="relative z-10 flex items-center justify-center">
                 <img src="/logo-icon.png" alt="CYVENTRA"
                   className="w-28 h-28 lg:w-40 lg:h-40 object-contain"
-                  style={{ mixBlendMode: 'screen', filter: 'brightness(3) saturate(1.4)', animation: 'logoPulse 3s ease-in-out infinite' }} />
+                  style={{
+                    animation: 'logoPulse 3s ease-in-out infinite',
+                  }} />
               </div>
             </div>
           </div>
