@@ -33,137 +33,86 @@ export default function About() {
       {/* ══════════════════════════════════════════
           HERO — cinematic full-height opener
       ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32 pb-20 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-8 md:px-16 pt-24 sm:pt-28 pb-16 overflow-hidden">
 
         {/* background grid */}
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: 'linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
-
-        {/* blue glow left */}
-        <div className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        <div className="absolute -left-40 top-1/3 w-72 h-72 md:w-[600px] md:h-[600px] rounded-full opacity-20 pointer-events-none"
           style={{ background: 'radial-gradient(circle, #1a3a8f 0%, transparent 70%)' }} />
-        {/* red glow right */}
-        <div className="absolute -right-40 bottom-1/4 w-[500px] h-[500px] rounded-full opacity-15 pointer-events-none"
+        <div className="absolute -right-40 bottom-1/4 w-72 h-72 md:w-[500px] md:h-[500px] rounded-full opacity-15 pointer-events-none"
           style={{ background: 'radial-gradient(circle, #cc1a1a 0%, transparent 70%)' }} />
 
-        <div className="relative max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center gap-16">
+        <div className="relative max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
           {/* LEFT — text */}
-          <div className="flex-1">
-            {/* eyebrow */}
-            <div className="flex items-center gap-3 mb-6">
+          <div className="flex-1 w-full">
+            <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-12 bg-red-600" />
               <span className="text-red-500 text-xs uppercase tracking-[0.3em] font-bold">our story</span>
             </div>
 
-            {/* Main headline — exact structure */}
-            <h1 className="font-black leading-[0.95] tracking-tight mb-8">
-              <span className="block text-[11vw] md:text-[7.5vw] text-white">we didn't</span>
-              <span className="block text-[11vw] md:text-[7.5vw] text-red-600">start with</span>
-              <span className="block text-[11vw] md:text-[7.5vw] text-blue-500">money.</span>
-              <span className="block text-[6vw] md:text-[4vw] text-white/70 mt-3">we started with <span className="text-white">belief.</span></span>
+            <h1 className="font-black leading-[0.95] tracking-tight mb-6">
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[7.5vw] text-white">we didn't</span>
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[7.5vw] text-red-600">start with</span>
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[7.5vw] text-blue-500">money.</span>
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-[4vw] text-white/70 mt-3">
+                we started with <span className="text-white">belief.</span>
+              </span>
             </h1>
 
-            <p className="text-white/50 text-base md:text-lg max-w-xl leading-relaxed mt-6">
+            <p className="text-white/50 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed">
               Mid-2025. A handful of dreamers. Zero investors. Infinite conviction.
               <span className="text-white font-medium">
-              {' '}That's how{' '}
-              <span style={{ color: '#1a3a8f' }}>CYVE</span><span style={{ color: '#cc1a1a' }}>NTRA</span>
-              {' '}was born.
-            </span>
+                {' '}That's how{' '}
+                <span style={{ color: '#1a3a8f' }}>CYVE</span><span style={{ color: '#cc1a1a' }}>NTRA</span>
+                {' '}was born.
+              </span>
             </p>
 
-            <div className="mt-16 flex items-center gap-3 text-white/30 text-xs uppercase tracking-widest">
-              <div className="w-px h-12 bg-white/20" />
+            <div className="mt-10 flex items-center gap-3 text-white/30 text-xs uppercase tracking-widest">
+              <div className="w-px h-10 bg-white/20" />
               scroll to explore our journey
             </div>
           </div>
 
-          {/* RIGHT — animated logo */}
-          <div className="hidden md:flex flex-1 items-center justify-center">
-            <div className="relative flex items-center justify-center w-80 h-80">
+          {/* RIGHT — animated logo (md+) */}
+          <div className="hidden md:flex flex-shrink-0 items-center justify-center">
+            <div className="relative flex items-center justify-center w-56 h-56 lg:w-80 lg:h-80">
 
-              {/* CSS keyframes */}
               <style>{`
-                @keyframes orbitSpin {
-                  from { transform: rotate(0deg); }
-                  to   { transform: rotate(360deg); }
-                }
-                @keyframes orbitSpinReverse {
-                  from { transform: rotate(0deg); }
-                  to   { transform: rotate(-360deg); }
-                }
+                @keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                @keyframes orbitSpinReverse { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
                 @keyframes logoPulse {
                   0%, 100% { transform: scale(1);    filter: brightness(1)   drop-shadow(0 0 20px #3b82f6); }
                   50%      { transform: scale(1.06); filter: brightness(1.2) drop-shadow(0 0 40px #ef4444); }
                 }
-                @keyframes blinkBlue {
-                  0%, 100% { opacity: 1; box-shadow: 0 0 8px 4px #3b82f6; }
-                  50%      { opacity: 0.2; box-shadow: 0 0 2px 1px #3b82f6; }
-                }
-                @keyframes blinkRed {
-                  0%, 100% { opacity: 1; box-shadow: 0 0 8px 4px #ef4444; }
-                  50%      { opacity: 0.2; box-shadow: 0 0 2px 1px #ef4444; }
-                }
-                @keyframes outerRingPulse {
-                  0%, 100% { opacity: 0.3; transform: scale(1); }
-                  50%      { opacity: 0.6; transform: scale(1.04); }
-                }
+                @keyframes blinkBlue { 0%, 100% { opacity: 1; box-shadow: 0 0 8px 4px #3b82f6; } 50% { opacity: 0.2; } }
+                @keyframes blinkRed  { 0%, 100% { opacity: 1; box-shadow: 0 0 8px 4px #ef4444; } 50% { opacity: 0.2; } }
+                @keyframes outerRingPulse { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.04); } }
               `}</style>
 
-              {/* Outer pulsing ring */}
-              <div className="absolute w-80 h-80 rounded-full border border-blue-600/30"
+              <div className="absolute inset-0 rounded-full border border-blue-600/30"
                 style={{ animation: 'outerRingPulse 3s ease-in-out infinite' }} />
-
-              {/* Orbit ring 1 — red, spins clockwise */}
-              <div className="absolute w-72 h-72 rounded-full border-2 border-transparent"
-                style={{
-                  animation: 'orbitSpin 4s linear infinite',
-                  borderTopColor: '#ef4444',
-                  borderRightColor: '#ef444440',
-                  borderBottomColor: 'transparent',
-                  borderLeftColor: '#ef444440',
-                  boxShadow: '0 0 12px #ef444480',
-                }}>
-                {/* Blink dot — red */}
+              <div className="absolute w-[88%] h-[88%] rounded-full border-2 border-transparent"
+                style={{ animation: 'orbitSpin 4s linear infinite', borderTopColor: '#ef4444', borderRightColor: '#ef444440', borderBottomColor: 'transparent', borderLeftColor: '#ef444440', boxShadow: '0 0 12px #ef444480' }}>
                 <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-red-500"
                   style={{ animation: 'blinkRed 1.2s ease-in-out infinite' }} />
               </div>
-
-              {/* Orbit ring 2 — blue, spins counter-clockwise */}
-              <div className="absolute w-64 h-64 rounded-full border-2 border-transparent"
-                style={{
-                  animation: 'orbitSpinReverse 3s linear infinite',
-                  borderTopColor: '#3b82f6',
-                  borderLeftColor: '#3b82f640',
-                  borderBottomColor: 'transparent',
-                  borderRightColor: '#3b82f640',
-                  boxShadow: '0 0 12px #3b82f680',
-                }}>
-                {/* Blink dot — blue */}
+              <div className="absolute w-[78%] h-[78%] rounded-full border-2 border-transparent"
+                style={{ animation: 'orbitSpinReverse 3s linear infinite', borderTopColor: '#3b82f6', borderLeftColor: '#3b82f640', borderBottomColor: 'transparent', borderRightColor: '#3b82f640', boxShadow: '0 0 12px #3b82f680' }}>
                 <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-500"
                   style={{ animation: 'blinkBlue 0.9s ease-in-out infinite' }} />
               </div>
-
-              {/* Orbit ring 3 — white accent, medium speed */}
-              <div className="absolute w-56 h-56 rounded-full border border-white/20"
+              <div className="absolute w-[68%] h-[68%] rounded-full border border-white/20"
                 style={{ animation: 'orbitSpin 6s linear infinite' }} />
 
-              {/* Logo container — isolated blending context */}
               <div className="relative z-10 flex items-center justify-center" style={{ isolation: 'isolate' }}>
-                {/* White glow behind gives screen blend something to work with */}
-                <div className="absolute w-36 h-36 rounded-full"
+                <div className="absolute w-28 h-28 rounded-full"
                   style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }} />
-                <img
-                  src="/logo-icon.png"
-                  alt="CYVENTRA"
-                  className="w-44 h-44 object-contain"
-                  style={{
-                    mixBlendMode: 'screen',
-                    filter: 'brightness(3) saturate(1.4)',
-                    animation: 'logoPulse 3s ease-in-out infinite',
-                  }}
-                />
+                <img src="/logo-icon.png" alt="CYVENTRA"
+                  className="w-28 h-28 lg:w-40 lg:h-40 object-contain"
+                  style={{ mixBlendMode: 'screen', filter: 'brightness(3) saturate(1.4)', animation: 'logoPulse 3s ease-in-out infinite' }} />
               </div>
             </div>
           </div>
@@ -173,10 +122,9 @@ export default function About() {
       {/* ══════════════════════════════════════════
           SECTION 1 — The Beginning
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:px-16 bg-neutral-950">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-14 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-neutral-950">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div ref={s1.ref} className={fadeUp(s1.visible)}>
-            {/* section label */}
             <div className="flex items-center gap-3 mb-5">
               <span className="text-4xl font-black text-white/60 font-mono">01</span>
               <span className="h-px flex-1 bg-blue-800/50" />
@@ -225,7 +173,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           SECTION 2 — The Struggle (emotional)
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:px-16 bg-black relative overflow-hidden">
+      <section className="py-12 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-black relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
         <div className="absolute right-0 top-0 w-[400px] h-[400px] opacity-10 pointer-events-none"
@@ -289,7 +237,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           PULL QUOTE — full bleed
       ══════════════════════════════════════════ */}
-      <section className="bg-gradient-to-r from-blue-950 via-black to-red-950 py-20 px-6 md:px-16 border-y border-white/10">
+      <section className="bg-gradient-to-r from-blue-950 via-black to-red-950 py-12 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 border-y border-white/10">
         <div ref={s3.ref} className={`${fadeUp(s3.visible)} max-w-4xl mx-auto text-center`}>
           <div className="text-6xl mb-6">💬</div>
           <blockquote className="text-3xl md:text-5xl font-black leading-tight">
@@ -305,7 +253,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           SECTION 3 — The Promise
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:px-16 bg-neutral-950">
+      <section className="py-12 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-neutral-950">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
           {/* Visual left */}
@@ -357,7 +305,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           SECTION 4 — The Vision
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:px-16 bg-black relative overflow-hidden">
+      <section className="py-12 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-black relative overflow-hidden">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-5 pointer-events-none"
           style={{ background: 'radial-gradient(circle, #cc1a1a 0%, #1a3a8f 50%, transparent 70%)' }} />
 
@@ -418,7 +366,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           SECTION 5 — The Team Spirit
       ══════════════════════════════════════════ */}
-      <section className="py-24 px-6 md:px-16 bg-neutral-950">
+      <section className="py-12 md:py-20 px-4 sm:px-6 md:px-10 lg:px-16 bg-neutral-950">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div ref={s6.ref} className={fadeUp(s6.visible)}>
             <div className="flex items-center gap-3 mb-5">
@@ -487,7 +435,7 @@ export default function About() {
       {/* ══════════════════════════════════════════
           FINAL CTA — The Future
       ══════════════════════════════════════════ */}
-      <section className="relative py-28 px-6 md:px-16 overflow-hidden">
+      <section className="relative py-16 md:py-24 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden">
         {/* Full-bleed gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-black to-red-950" />
         <div className="absolute inset-0 opacity-[0.04]"

@@ -161,7 +161,7 @@ export default function Services() {
     <main className="bg-black text-white pt-28">
 
       {/* ── Hero ── */}
-      <section className="px-6 md:px-10 py-16 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 md:px-10 py-12 md:py-16 max-w-7xl mx-auto">
         <div className="max-w-3xl">
           <span className="text-red-500 text-xs uppercase tracking-widest font-semibold">what we offer</span>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mt-3 mb-5 leading-tight">
@@ -176,7 +176,7 @@ export default function Services() {
       </section>
 
       {/* ── Services Grid ── */}
-      <section className="px-6 md:px-10 pb-24 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 md:px-10 pb-14 md:pb-24 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
             const isBlue = service.accent === 'blue'
@@ -260,7 +260,7 @@ export default function Services() {
       </section>
 
       {/* ── Why Choose Us strip ── */}
-      <section className="bg-gradient-to-r from-blue-950 via-neutral-950 to-red-950 border-y border-white/10 py-14 px-6 md:px-10">
+      <section className="bg-gradient-to-r from-blue-950 via-neutral-950 to-red-950 border-y border-white/10 py-10 md:py-14 px-4 sm:px-6 md:px-10">
         <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
             { number: '12+', label: 'Service Areas', color: 'text-blue-400' },
@@ -277,7 +277,7 @@ export default function Services() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-6 md:px-10 text-center bg-black">
+      <section className="py-12 md:py-20 px-4 sm:px-6 md:px-10 text-center bg-black">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             need a <span className="text-red-500">custom</span> solution?
