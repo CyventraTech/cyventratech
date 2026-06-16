@@ -54,14 +54,30 @@ export default function Hero() {
             transform: mounted ? 'translateX(0)' : 'translateX(-30px)',
           }}
         >
-          {/* SEO H1 — visible to crawlers, styled as headline */}
-          <h1 aria-live="polite" style={{ transition: 'opacity 0.5s ease, transform 0.5s ease', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)' }}>
-            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block"
-              style={{ color: current.colors[0] }}>{current.word1}</span>
-            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-center"
-              style={{ color: current.colors[1] }}>{current.word2}</span>
-            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-right"
-              style={{ color: current.colors[2] }}>{current.word3}</span>
+          {/* Static H1 for SEO crawlers — always visible in DOM */}
+          <h1 className="hero-title font-black leading-[0.9]">
+            {/* Visually hidden static text for crawlers */}
+            <span className="sr-only">
+              CYVENTRA Technologies — Cybersecurity, Cloud Services, AI Automation &amp; IT Solutions in India
+            </span>
+
+            {/* Animated visual headline */}
+            <span
+              aria-hidden="true"
+              style={{
+                transition: 'opacity 0.5s ease, transform 0.5s ease',
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(16px)',
+                display: 'block',
+              }}
+            >
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block"
+                style={{ color: current.colors[0] }}>{current.word1}</span>
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-center"
+                style={{ color: current.colors[1] }}>{current.word2}</span>
+              <span className="text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-right"
+                style={{ color: current.colors[2] }}>{current.word3}</span>
+            </span>
           </h1>
 
           <p className="mt-5 max-w-xs text-sm sm:text-base leading-relaxed text-white/70">

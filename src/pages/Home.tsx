@@ -8,7 +8,8 @@ export default function Home() {
       <Hero />
 
       {/* Stats bar */}
-      <section className="bg-red-700 py-10 px-4 sm:px-6 md:px-10">
+      <section className="bg-red-700 py-10 px-4 sm:px-6 md:px-10" aria-label="Company statistics">
+        <h2 className="sr-only">CYVENTRA Technologies — Key Statistics</h2>
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { number: '+550',   label: 'clients served' },

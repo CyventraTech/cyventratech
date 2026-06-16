@@ -66,7 +66,23 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static H1 + H2 visible to crawlers before JS hydrates -->
+      <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0">
+        CYVENTRA Technologies — Cybersecurity, Cloud Services, AI Automation &amp; IT Solutions
+      </h1>
+      <h2 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0">
+        Full-Stack Technology Services — Cybersecurity, Cloud Migration, AI &amp; IT Support in India
+      </h2>
+    </div>
+    <noscript>
+      <div style="background:#000;color:#fff;padding:2rem;font-family:sans-serif;text-align:center">
+        <h1>CYVENTRA Technologies</h1>
+        <h2>Cybersecurity, Cloud Services, AI Automation &amp; IT Solutions</h2>
+        <p>Please enable JavaScript to use this website.</p>
+        <p>Contact us: <a href="mailto:support@cyventratech.com" style="color:#ef4444">support@cyventratech.com</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
