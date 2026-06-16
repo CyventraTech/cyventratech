@@ -33,8 +33,7 @@ export default function Home() {
               full-stack<br />
               <span className="text-red-600">technology services</span><br />
               for every scale
-            </h2>
-            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mb-7">
+            </h2>            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mb-7">
               From cybersecurity and cloud migration to AI automation and CCTV — CYVENTRA delivers end-to-end IT solutions engineered to protect and power your business.
             </p>
             <div className="flex flex-wrap gap-3">

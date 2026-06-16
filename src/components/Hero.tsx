@@ -54,15 +54,15 @@ export default function Hero() {
             transform: mounted ? 'translateX(0)' : 'translateX(-30px)',
           }}
         >
-          {/* Headline */}
-          <div style={{ transition: 'opacity 0.5s ease, transform 0.5s ease', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)' }}>
-            <div className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block"
-              style={{ color: current.colors[0] }}>{current.word1}</div>
-            <div className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-center"
-              style={{ color: current.colors[1] }}>{current.word2}</div>
-            <div className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-right"
-              style={{ color: current.colors[2] }}>{current.word3}</div>
-          </div>
+          {/* SEO H1 — visible to crawlers, styled as headline */}
+          <h1 aria-live="polite" style={{ transition: 'opacity 0.5s ease, transform 0.5s ease', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)' }}>
+            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block"
+              style={{ color: current.colors[0] }}>{current.word1}</span>
+            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-center"
+              style={{ color: current.colors[1] }}>{current.word2}</span>
+            <span className="hero-title font-black text-5xl sm:text-6xl md:text-7xl lg:text-[7vw] leading-[0.9] block lg:text-right"
+              style={{ color: current.colors[2] }}>{current.word3}</span>
+          </h1>
 
           <p className="mt-5 max-w-xs text-sm sm:text-base leading-relaxed text-white/70">
             end-to-end technology solutions — cybersecurity, cloud, AI & automation.
