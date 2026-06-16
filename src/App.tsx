@@ -6,6 +6,9 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Careers from './pages/Careers'
 import Contact from './pages/Contact'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
+import CookiePolicy from './pages/CookiePolicy'
 
 export default function App() {
   return (
@@ -14,14 +17,15 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* redirect old why-cyventra links to about */}
           <Route path="/why-cyventra" element={<Navigate to="/about" replace />} />
           <Route path="/services" element={<Services />} />
-          {/* Solutions & Resources hidden — redirect to home */}
           <Route path="/solutions" element={<Navigate to="/" replace />} />
           <Route path="/resources" element={<Navigate to="/" replace />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
         </Route>
       </Routes>
     </BrowserRouter>

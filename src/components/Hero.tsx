@@ -47,7 +47,7 @@ export default function Hero() {
 
         {/* LEFT — text */}
         <div
-          className="flex-1 flex flex-col justify-center px-4 sm:px-8 md:px-12 pt-24 sm:pt-28 lg:pt-0 pb-8 lg:pb-0"
+          className="w-full lg:flex-1 flex flex-col justify-center px-4 sm:px-8 md:px-12 pt-24 sm:pt-28 lg:pt-0 pb-4 lg:pb-0"
           style={{
             transition: 'opacity 0.8s ease, transform 0.8s ease',
             opacity: mounted ? 1 : 0,
@@ -89,17 +89,21 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT — Spline (tablet+ only) */}
+        {/* RIGHT — Spline 3D (all devices) */}
         <div
-          className="hidden lg:block flex-1 relative w-full"
+          className="flex-1 relative w-full min-h-[280px] sm:min-h-[350px] lg:min-h-0"
           style={{
-            height: 'calc(100vh - 0px)',
+            height: 'clamp(280px, 45vw, 100vh)',
             transition: 'opacity 1.2s ease, transform 1.2s ease',
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateX(0)' : 'translateX(40px)',
           }}
         >
-          <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+            loadDelay={1200}
+          />
         </div>
       </div>
 
