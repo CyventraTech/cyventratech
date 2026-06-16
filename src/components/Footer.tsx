@@ -66,9 +66,9 @@ export default function Footer() {
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
           <p>© {new Date().getFullYear()} CYVENTRA Technologies. All rights reserved.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="/cookies" className="hover:text-white transition-colors">Cookie Policy</a>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
