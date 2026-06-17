@@ -148,7 +148,11 @@ export default function Contact() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs uppercase tracking-widest text-neutral-500 mb-0.5">email us</div>
-                  <div className="text-white font-semibold text-sm break-all">support@cyventratech.com</div>
+                  <div className="text-white font-semibold text-sm break-all">
+                <a href="mailto:support@cyventratech.com" className="hover:text-red-400 transition-colors">
+                  support&#64;cyventratech&#46;com
+                </a>
+              </div>
                 </div>
               </div>
               <a href="mailto:support@cyventratech.com"
