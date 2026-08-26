@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { DottedSurface } from '@/components/ui/dotted-surface'
 import { SplineScene } from '@/components/ui/splite'
@@ -16,6 +16,20 @@ export default function Hero() {
   const [index, setIndex] = useState(0)
   const [visible, setVisible] = useState(true)
   const [mounted, setMounted] = useState(false)
+  const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'done'>('idle')
+
+  const handleDownload = useCallback(() => {
+    if (downloadState !== 'idle') return
+    setDownloadState('loading')
+    const link = document.createElement('a')
+    link.href = '/Cyventra_Company_Profile_V2.0.pdf'
+    link.download = 'Cyventra_Company_Profile_V2.0.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    setTimeout(() => setDownloadState('done'), 1500)
+    setTimeout(() => setDownloadState('idle'), 4000)
+  }, [downloadState])
 
   useEffect(() => {
     setTimeout(() => setMounted(true), 100)
@@ -84,10 +98,48 @@ export default function Hero() {
             end-to-end technology solutions — cybersecurity, cloud, AI & automation.
           </p>
 
-          <div className="flex flex-row gap-3 mt-5 flex-wrap">
+          <div className="flex flex-row gap-3 mt-5 flex-wrap items-center">
             <Link to="/contact" className="bg-red-600 text-white text-sm font-medium rounded-full px-6 py-3 hover:bg-red-700 transition-colors min-h-[44px] flex items-center">
               get started
             </Link>
+
+            <button
+              onClick={handleDownload}
+              disabled={downloadState !== 'idle'}
+              className={`relative text-sm font-medium rounded-full px-6 py-3 min-h-[44px] flex items-center gap-2 transition-all duration-300 overflow-hidden ${
+                downloadState === 'done'
+                  ? 'bg-emerald-500/20 border border-emerald-500/50 text-emerald-400'
+                  : downloadState === 'loading'
+                  ? 'bg-white/10 border border-white/30 text-white/70 cursor-wait'
+                  : 'border border-white/30 text-white hover:bg-white/10'
+              }`}
+            >
+              {downloadState === 'idle' && (
+                <>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  company profile
+                </>
+              )}
+              {downloadState === 'loading' && (
+                <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+              )}
+              {downloadState === 'done' && (
+                <>
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Done!
+                </>
+              )}
+            </button>
+
             <Link to="/about" className="border border-white/30 text-white text-sm font-medium rounded-full px-6 py-3 hover:bg-white/10 transition-colors min-h-[44px] flex items-center">
               learn more
             </Link>
